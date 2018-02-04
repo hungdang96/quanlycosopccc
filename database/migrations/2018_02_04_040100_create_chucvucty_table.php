@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDaidiencosoTable extends Migration
+class CreateChucvuctyTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateDaidiencosoTable extends Migration
      */
     public function up()
     {
-        Schema::create('daidiencoso', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+        Schema::create('chucvucty', function (Blueprint $table) {
+            $table->unsignedSmallInteger('cv_ma')->autoIncrement();
+            $table->string('cv_ten', 50);
+            $table->text('cv_dienGiai');
+
+            $table->unique(['cv_ten']);
         });
     }
 
@@ -26,6 +29,6 @@ class CreateDaidiencosoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('daidiencoso');
+        Schema::dropIfExists('chucvucty');
     }
 }

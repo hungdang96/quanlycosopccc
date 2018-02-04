@@ -14,8 +14,19 @@ class CreateChatchayTable extends Migration
     public function up()
     {
         Schema::create('chatchay', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+            $table->string('cc_ma', 20);
+            $table->string('cc_ten', 100);
+            $table->unsignedSmallInteger('lcc_maFK');
+            $table->timestamp('cc_taoMoi')
+                ->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('cc_capNhat')
+                ->default(DB::raw('CURRENT_TIMESTAMP'));
+
+            $table->unique(['cc_ten']);
+            $table->primary(['cc_ma']);
+            $table->foreign('lcc_maFK')
+                ->references('lcc_ma')->on('loaichatchay')
+                ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
