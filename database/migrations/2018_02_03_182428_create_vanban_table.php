@@ -17,7 +17,7 @@ class CreateVanbanTable extends Migration
             $table->string('vb_ma', 20);
             $table->string('vb_ten', 100);
             $table->text('vb_dienGiai');
-            $table->string('vb_path', 250);
+            $table->string('vb_path');
             $table->timestamp('vb_taoMoi')
                 ->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('vb_capNhat')

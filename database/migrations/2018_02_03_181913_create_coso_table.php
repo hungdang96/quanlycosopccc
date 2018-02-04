@@ -15,11 +15,11 @@ class CreateCosoTable extends Migration
     {
         Schema::create('coso', function (Blueprint $table) {
             $table->string('cs_ma', 20);
-            $table->string('cs_ten', 200);
+            $table->string('cs_ten');
             $table->string('cs_diaChi', 250);
             $table->string('cs_toaDo', 200);
             $table->string('cs_dienThoai', 15);
-            $table->string('lcs_maFK', 20)
+            $table->string('lcs_maFK', 20);
             $table->string('p_maFK', 10);
             $table->string('cc_maFK', 20);
             $table->string('dcc_maFK', 20);
@@ -31,7 +31,7 @@ class CreateCosoTable extends Migration
             $table->unsignedTinyInteger('cs_trangThai')
                 ->default('1');
 
-            $table->unique(['cs_ten', 'cs_toaDo', 'cs_diaChi', 'cs_diaChi']);
+            $table->unique('cs_ten');
             $table->primary(['cs_ma']);
             $table->foreign('lcs_maFK')
                 ->references('lcs_ma')->on('loaicoso')

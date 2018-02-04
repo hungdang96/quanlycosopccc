@@ -16,7 +16,7 @@ class CreateDaidiencosoTable extends Migration
         Schema::create('daidiencoso', function (Blueprint $table) {
             $table->unsignedSmallInteger('dd_ma')->autoIncrement();
             $table->string('dd_ten', 50);
-            $table->string('cv_maFK', 100);
+            $table->unsignedSmallInteger('cv_maFK');
             $table->string('dd_dienThoai', 15);
             $table->timestamp('dd_taoMoi')
                 ->default(DB::raw('CURRENT_TIMESTAMP'));
@@ -25,12 +25,12 @@ class CreateDaidiencosoTable extends Migration
             $table->string('cs_maFK', 20);
 
             $table->unique(['dd_ten', 'dd_dienThoai']);
-            $table->primary(['dd_ma']);
+            //$table->primary(['dd_ma']);
             $table->foreign('cv_maFK')
-                ->references('cv_ma')->on('chucvu')
+                ->references('cv_ma')->on('chucvucty')
                 ->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('cs_maFK')
-                ->references('cs_ma')->on('chucvucty')
+                ->references('cs_ma')->on('coso')
                 ->onDelete('cascade')->onUpdate('cascade');
         });
     }

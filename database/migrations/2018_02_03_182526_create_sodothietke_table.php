@@ -16,7 +16,7 @@ class CreateSodothietkeTable extends Migration
         Schema::create('sodothietke', function (Blueprint $table) {
             $table->string('sdtk_ma', 20);
             $table->string('sdtk_ten', 100);
-            $table->string('sdtk_path', 250);
+            $table->string('sdtk_path');
             $table->timestamp('sdtk_taoMoi')
                 ->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('sdtk_capNhat')
