@@ -14,3 +14,31 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/taikhoan/taomoi', function(){
+
+});
+
+Route::get('/taikhoan/capnhat', function(){
+
+});
+
+Route::get('/taikhoan/forgot', function(){
+
+});
+
+Route::get('/coso/themmoi', function(){
+
+});
+
+Route::get('/coso/suathongtin', function(){
+
+});
+
+Route::get('/diagioi/themkhuvuc', function(){
+
+});
+
+Route::get('/diagioi/suakhuvuc', function(){
+
+});
